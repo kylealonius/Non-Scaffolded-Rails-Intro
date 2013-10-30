@@ -1,7 +1,9 @@
 class PostsController < ApplicationController
   def index
-  end
+    @posts = Post.order('id DESC')
+  end # automatically loads the app/views/posts/index.erb
 
   def show
-  end
+    @post = Post.find(params[:id])
+  end # automatically loads the app/views/posts/show.erb
 end

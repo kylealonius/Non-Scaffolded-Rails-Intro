@@ -1,2 +1,14 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h2>Company Blog</h2>
+
+<!--loop through all the available blog posts. -->
+<!-- %= echoes the statement. i.e. prints the output -->
+
+<% @posts.each do |post| %>
+	<article>
+		<!-- link_to post.title, post same as link_to post.title, post_path(post) -->
+		<h3><%= link_to post.title, post %></h3>
+		<section>
+			<%= post.content %>
+		</section>
+	</article>
+<% end %>

@@ -1,8 +1,4 @@
 NonScaffoldedExample::Application.routes.draw do
-  
-  get "posts/index"
-
-  get "posts/show"
 
   #The URL / loads the index action of the info controller
   root :to => 'info#index'
@@ -12,6 +8,11 @@ NonScaffoldedExample::Application.routes.draw do
   
   #The URL /contact maps to the contact action of the info controller
   match 'contact' => 'info#contact', :as => 'contact'
+  
+   #The URL /posts maps to the index action of the posts controller if the request is a get (not a post)
+  match 'posts' => 'posts#index', :as => 'posts', :via => :get
+  
+  match 'posts/:id' => 'posts#show', :as => 'post', :via => :get
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
